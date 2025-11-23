@@ -1,0 +1,23 @@
+<RCC>
+  <qresource>
+    <file>tb.svg</file>
+    <file>tw.png</file>
+    <file>logo-a.svg</file>
+    <file>b-t.svg</file>
+    <file>w-maximize.svg</file>
+    <file>w-close.svg</file>
+    <file>g-on-top.svg</file>
+    <file>w-minimize_aa.svg</file>
+    <file>w-min.svg</file>
+    <file>g-minimize.svg</file>
+    <file>g-min.svg</file>
+    <file>g-maximize.svg</file>
+    <file>g-close.svg</file>
+    <file>b-on-top.svg</file>
+    <file>b-maximize.svg</file>
+    <file>b-close.svg</file>
+    <file>b-minimize.svg</file>
+    <file>b-min.svg</file>
+    <file>w-on-top.svg</file>
+  </qresource>
+</RCC>

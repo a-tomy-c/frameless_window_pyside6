@@ -1,0 +1,7 @@
+adicional/
+**/__pycache__/
+*.pyc
+tests/
+*.log
+*.svg
+
