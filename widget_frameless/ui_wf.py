@@ -51,6 +51,29 @@ class Ui_WidgetFrameless(object):
         self.hly_bar = QHBoxLayout()
         self.hly_bar.setSpacing(0)
         self.hly_bar.setObjectName(u"hly_bar")
+        self.fr_no = QFrame(self.fr_bar)
+        self.fr_no.setObjectName(u"fr_no")
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Ignored, QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.fr_no.sizePolicy().hasHeightForWidth())
+        self.fr_no.setSizePolicy(sizePolicy)
+        self.fr_no.setMaximumSize(QSize(6, 16777215))
+        self.fr_no.setFrameShape(QFrame.Shape.NoFrame)
+        self.fr_no.setFrameShadow(QFrame.Shadow.Plain)
+        self.hly_fr_no = QHBoxLayout(self.fr_no)
+        self.hly_fr_no.setSpacing(0)
+        self.hly_fr_no.setObjectName(u"hly_fr_no")
+        self.hly_fr_no.setContentsMargins(0, 0, 0, 0)
+        self.hly_no = QHBoxLayout()
+        self.hly_no.setSpacing(0)
+        self.hly_no.setObjectName(u"hly_no")
+
+        self.hly_fr_no.addLayout(self.hly_no)
+
+
+        self.hly_bar.addWidget(self.fr_no)
+
         self.btn_logo = QPushButton(self.fr_bar)
         self.btn_logo.setObjectName(u"btn_logo")
         self.btn_logo.setMinimumSize(QSize(20, 20))
@@ -80,6 +103,7 @@ class Ui_WidgetFrameless(object):
         icon1.addFile(u":/w-on-top.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.btn_lock.setIcon(icon1)
         self.btn_lock.setIconSize(QSize(16, 16))
+        self.btn_lock.setCheckable(True)
         self.btn_lock.setFlat(True)
 
         self.hly_bar.addWidget(self.btn_lock)
@@ -101,9 +125,6 @@ class Ui_WidgetFrameless(object):
 
         self.lb_info_aux = QLabel(self.fr_bar)
         self.lb_info_aux.setObjectName(u"lb_info_aux")
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Ignored, QSizePolicy.Policy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.lb_info_aux.sizePolicy().hasHeightForWidth())
         self.lb_info_aux.setSizePolicy(sizePolicy)
         self.lb_info_aux.setMaximumSize(QSize(16777215, 20))
@@ -150,6 +171,7 @@ class Ui_WidgetFrameless(object):
         icon3.addFile(u":/w-maximize.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.btn_maximize.setIcon(icon3)
         self.btn_maximize.setIconSize(QSize(16, 16))
+        self.btn_maximize.setCheckable(True)
         self.btn_maximize.setFlat(True)
 
         self.hly_btn_default.addWidget(self.btn_maximize)

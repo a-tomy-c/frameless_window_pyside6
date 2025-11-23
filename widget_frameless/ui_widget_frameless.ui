@@ -94,6 +94,52 @@
               <number>0</number>
              </property>
              <item>
+              <widget class="QFrame" name="fr_no">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>6</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::Shape::NoFrame</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Shadow::Plain</enum>
+               </property>
+               <layout class="QHBoxLayout" name="hly_fr_no">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <layout class="QHBoxLayout" name="hly_no" stretch="">
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
               <widget class="QPushButton" name="btn_logo">
                <property name="minimumSize">
                 <size>
@@ -182,6 +228,9 @@
                  <width>16</width>
                  <height>16</height>
                 </size>
+               </property>
+               <property name="checkable">
+                <bool>true</bool>
                </property>
                <property name="flat">
                 <bool>true</bool>
@@ -373,6 +422,9 @@
                     <width>16</width>
                     <height>16</height>
                    </size>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
                   </property>
                   <property name="flat">
                    <bool>true</bool>

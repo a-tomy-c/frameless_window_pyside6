@@ -1,4 +1,5 @@
-from PySide6.QtGui import QMouseEvent
+from os import stat
+from PySide6.QtGui import QIcon, QMouseEvent
 from PySide6.QtWidgets import QApplication, QLabel, QSizeGrip, QWidget, QVBoxLayout
 from PySide6.QtCore import Qt, QPoint
 from widget_frameless.ui_wf import Ui_WidgetFrameless
@@ -15,10 +16,10 @@ class WidgetFrameless(QWidget, Ui_WidgetFrameless):
         self.__cnf_WidgetFrameless()
 
     def __cnf_WidgetFrameless(self):
-        # Conectar botones
         self.btn_close.clicked.connect(self.close)
         self.btn_maximize.clicked.connect(self.toggle_maximize)
         self.btn_minimize.clicked.connect(self.showMinimized)
+        self.btn_lock.clicked.connect(self.toggle_on_top)
         self.btn_left.hide()
         self.btn_right.hide()
         self.lb_info.setAttribute(Qt.WA_TransparentForMouseEvents)
@@ -29,15 +30,22 @@ class WidgetFrameless(QWidget, Ui_WidgetFrameless):
         self.hly_sb_grip.addWidget(self._sizegrip)
         self._szgrip_top = QSizeGrip(self.fr_btn_default)
         self.hly_btn_default.addWidget(self._szgrip_top)
+        self._szgrip_no = QSizeGrip(self.fr_no)
+        self.hly_no.addWidget(self._szgrip_no)
 
         self._load_style()
+        self.set_on_top(False)
 
     def toggle_maximize(self):
-        self.showNormal() if self.isMaximized() else self.showMaximized()
+        if self.isMaximized():
+            self.showNormal()
+            self.btn_maximize.setIcon(QIcon(':w-maximize.svg'))
+        else:
+            self.showMaximized()
+            self.btn_maximize.setIcon(QIcon(':w-minimize.svg'))
 
     def mousePressEvent(self, event: QMouseEvent):
         if event.button() == Qt.LeftButton:
-            # Verificar si el clic fue en la barra de título
             if self.fr_bar.geometry().contains(event.pos() - self.wg_container.pos()):
                 self.drag_position = event.globalPosition().toPoint() - self.frameGeometry().topLeft()
         event.accept()
@@ -73,4 +81,21 @@ class WidgetFrameless(QWidget, Ui_WidgetFrameless):
         except FileNotFoundError:
             self.msg_statusbar('styles_wf.qss no encontrado.')
 
-    
+    def set_on_top(self, enable:bool):
+        current_flags = self.windowFlags()
+        self.btn_lock.setChecked(enable)
+        if enable:
+            new_flags = current_flags | Qt.WindowType.WindowStaysOnTopHint
+            self.msg_statusbar('enable - on top.', 'yellowgreen')
+            self.btn_lock.setIcon(QIcon(':g-on-top.svg'))
+        else:
+            new_flags = current_flags & ~Qt.WindowType.WindowStaysOnTopHint
+            self.msg_statusbar('disabled -on top', 'orange')
+            self.btn_lock.setIcon(QIcon(':b-on-top.svg'))
+        self.setWindowFlags(new_flags)
+        self.show()
+
+    def toggle_on_top(self):
+        self.set_on_top(self.btn_lock.isChecked())
+
+
