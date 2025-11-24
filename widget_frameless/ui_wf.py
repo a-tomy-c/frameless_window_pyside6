@@ -79,7 +79,7 @@ class Ui_WidgetFrameless(object):
         self.btn_logo.setMinimumSize(QSize(20, 20))
         self.btn_logo.setMaximumSize(QSize(20, 20))
         icon = QIcon()
-        icon.addFile(u":/tw.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u":/tw.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.btn_logo.setIcon(icon)
         self.btn_logo.setIconSize(QSize(20, 20))
         self.btn_logo.setFlat(True)
@@ -90,7 +90,7 @@ class Ui_WidgetFrameless(object):
         self.btn_title.setObjectName(u"btn_title")
         self.btn_title.setMinimumSize(QSize(0, 20))
         self.btn_title.setMaximumSize(QSize(80, 20))
-        self.btn_title.setIconSize(QSize(24, 24))
+        self.btn_title.setIconSize(QSize(20, 20))
         self.btn_title.setFlat(True)
 
         self.hly_bar.addWidget(self.btn_title)

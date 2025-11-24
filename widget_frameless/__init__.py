@@ -1,8 +1,70 @@
 from os import stat
-from PySide6.QtGui import QIcon, QMouseEvent, QWindow
-from PySide6.QtWidgets import QApplication, QLabel, QSizeGrip, QWidget, QVBoxLayout
-from PySide6.QtCore import Qt, QPoint
+from PySide6.QtGui import QAction, QIcon, QMouseEvent, QPixmap, QWindow
+from PySide6.QtWidgets import QApplication, QDialog, QLabel, QMenu, QSizeGrip, QWidget, QVBoxLayout
+from PySide6.QtCore import Qt, QPoint, QSize
 from widget_frameless.ui_wf import Ui_WidgetFrameless
+from widget_frameless.ui_dabout import Ui_DialogAbout
+
+
+class _DialogAbout(QDialog, Ui_DialogAbout):
+    def __init__(self, *args, **kw):
+        super().__init__(*args, **kw)
+        self.setupUi(self)
+        self.setStyleSheet('''
+        QDialog {
+            background-color: #221820;
+        }
+        QTextEdit {
+            background-color: transparent;
+        }
+        ''')
+        self.resize(500, 180)
+        font = self.te_info.font()
+        font.setPointSize(12)
+        # font.setFamily('Verdana')
+        self.te_info.setFont(font)
+        self.test()
+
+    def set_image(self, path_image:str):
+        pix = QPixmap(path_image)
+        pix_scaled = pix.scaled(QSize(150, 150))
+        self.lb_logo.setPixmap(pix_scaled)
+
+    def set_text(self, text:str, fg:str='white', br=False, bold=False):
+        if bold:
+            text = f'<b>{text}</b>'
+        br = '<br>' if br else ''
+        self.te_info.insertHtml(f'<span style=color:{fg};>{text}</span>{br}')
+
+    def test(self):
+        self.set_image('widget_frameless/icons/tw.png')
+        self.set_text('version: ', 'gray')
+        self.set_text('0.1', 'salmon', br=True)
+        # self.set_icon(':w-bug.svg')
+        self.set_text('https://github.com/a-tomy-c/frameless_window_pyside6', 'skyblue')
+        self.set_text_title('Frameless window')
+        self.set_text_aux('PySide6 - Widget')
+        self.set_title('Frameless')
+
+    def set_icon(self, icon:str):
+        qicon = QIcon(icon)
+        pix = qicon.pixmap(QSize(150,150), QIcon.Mode.Normal)
+        self.lb_logo.setPixmap(pix)
+
+    def _to_lb(self, lb:QLabel, text:str, fg:str='gray', bold:bool=True, size:int=14):
+        lb.setText(text)
+        lb.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        tp = 'bold' if bold else 'normal'
+        lb.setStyleSheet(f'color:{fg};font-weight:{tp};font-size:{size}px;')
+        
+    def set_text_aux(self, text:str, fg:str='gray', bold:bool=True, size:int=14):
+        self._to_lb(self.lb_aux, text, fg, bold, size)
+
+    def set_text_title(self, text:str, fg:str='white', bold:bool=True, size:int=18):
+        self._to_lb(self.lb_title, text, fg, bold, size)    
+
+    def set_title(self, text:str):
+        self.setWindowTitle(text)
 
 
 class WidgetFrameless(QWidget, Ui_WidgetFrameless):
@@ -20,6 +82,7 @@ class WidgetFrameless(QWidget, Ui_WidgetFrameless):
         self.btn_maximize.clicked.connect(self.toggle_maximize)
         self.btn_minimize.clicked.connect(self.showMinimized)
         self.btn_lock.clicked.connect(self.toggle_on_top)
+        self.btn_title.clicked.connect(self.show_menu)
         self.btn_left.hide()
         self.btn_right.hide()
         self.lb_info.setAttribute(Qt.WA_TransparentForMouseEvents)
@@ -136,4 +199,21 @@ class WidgetFrameless(QWidget, Ui_WidgetFrameless):
     def add_to_statusbar_right(self, widget:QWidget):
         """agregar widget al statusbar DERECHA"""
         self.hly_sb_right.addWidget(widget)
+
+    def show_menu(self):
+        menu = QMenu(self)
+        item0 = QAction('About', self)
+        item0.triggered.connect(self.show_about)
+        item1 = QAction('Close', self)
+        item1.triggered.connect(self.close)
+        
+        menu.addAction(item0)
+        menu.addAction(item1)
+        pos = self.btn_title.mapToGlobal(self.btn_title.rect().bottomLeft())
+        menu.exec(pos)
+
+    def show_about(self):
+        dialog_about = _DialogAbout()
+        dialog_about.exec()
+        
     

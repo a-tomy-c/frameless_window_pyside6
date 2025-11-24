@@ -1,8 +1,10 @@
 <RCC>
   <qresource>
+    <file>w-bug.svg</file>
+    <file>b-bug.svg</file>
+    <file>w-t.svg</file>
+    <file>tw.svg</file>
     <file>tb.svg</file>
-    <file>tw.png</file>
-    <file>logo-a.svg</file>
     <file>b-t.svg</file>
     <file>w-maximize.svg</file>
     <file>w-minimize.svg</file>
