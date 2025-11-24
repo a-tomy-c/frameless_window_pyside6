@@ -17,7 +17,12 @@ ventana personalizada con PySide6
 
 ## NOTAS
 - agregue statusbar
-- agregue sizegrip para redimensionar la ventana en las esquinas (arriba-derecha, arriba-izquierda, abajo-derecha)
+- agregue sizegrip para redimensionar la ventana en las esquinas (arriba-derecha, arriba-izquierda, abajo-derecha, abajo-izquierda)
 - agregue funcion btn on-top, cambia el icono
 - btn toggle maximize cambia el icono
+- agregue los metodos para asignar texto (revisa el archivo test.py)
+- agregue el sizegrip que faltaba en la esquina inferior izquierda
+- cambie el nombre de los frames que contienen los sizegrips, ahora esta un poco mas ordenado y coherente
+- ahora se le puede colocar color de fondo al titulo
+
 

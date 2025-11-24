@@ -94,7 +94,7 @@
               <number>0</number>
              </property>
              <item>
-              <widget class="QFrame" name="fr_no">
+              <widget class="QFrame" name="fr_grip_no">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -130,7 +130,7 @@
                  <number>0</number>
                 </property>
                 <item>
-                 <layout class="QHBoxLayout" name="hly_no" stretch="">
+                 <layout class="QHBoxLayout" name="hly_grip_no">
                   <property name="spacing">
                    <number>0</number>
                   </property>
@@ -594,6 +594,9 @@
               </property>
               <item>
                <layout class="QHBoxLayout" name="hly_status_bar">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
                 <item>
                  <widget class="QFrame" name="fr_statusbar_left">
                   <property name="maximumSize">
@@ -626,6 +629,36 @@
                    </property>
                    <item>
                     <layout class="QHBoxLayout" name="hly_sb_left"/>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QFrame" name="fr_grip_so">
+                  <property name="frameShape">
+                   <enum>QFrame::Shape::NoFrame</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Shadow::Plain</enum>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_6">
+                   <property name="spacing">
+                    <number>0</number>
+                   </property>
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item>
+                    <layout class="QHBoxLayout" name="hly_sb_grip_so"/>
                    </item>
                   </layout>
                  </widget>
@@ -722,7 +755,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QFrame" name="fr_statusbar_grip">
+                 <widget class="QFrame" name="fr_grip_se">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -752,7 +785,7 @@
                     <number>0</number>
                    </property>
                    <item>
-                    <layout class="QHBoxLayout" name="hly_sb_grip">
+                    <layout class="QHBoxLayout" name="hly_sb_grip_se">
                      <property name="spacing">
                       <number>0</number>
                      </property>

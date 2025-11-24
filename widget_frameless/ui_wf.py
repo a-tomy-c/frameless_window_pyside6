@@ -51,28 +51,28 @@ class Ui_WidgetFrameless(object):
         self.hly_bar = QHBoxLayout()
         self.hly_bar.setSpacing(0)
         self.hly_bar.setObjectName(u"hly_bar")
-        self.fr_no = QFrame(self.fr_bar)
-        self.fr_no.setObjectName(u"fr_no")
+        self.fr_grip_no = QFrame(self.fr_bar)
+        self.fr_grip_no.setObjectName(u"fr_grip_no")
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Ignored, QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.fr_no.sizePolicy().hasHeightForWidth())
-        self.fr_no.setSizePolicy(sizePolicy)
-        self.fr_no.setMaximumSize(QSize(6, 16777215))
-        self.fr_no.setFrameShape(QFrame.Shape.NoFrame)
-        self.fr_no.setFrameShadow(QFrame.Shadow.Plain)
-        self.hly_fr_no = QHBoxLayout(self.fr_no)
+        sizePolicy.setHeightForWidth(self.fr_grip_no.sizePolicy().hasHeightForWidth())
+        self.fr_grip_no.setSizePolicy(sizePolicy)
+        self.fr_grip_no.setMaximumSize(QSize(6, 16777215))
+        self.fr_grip_no.setFrameShape(QFrame.Shape.NoFrame)
+        self.fr_grip_no.setFrameShadow(QFrame.Shadow.Plain)
+        self.hly_fr_no = QHBoxLayout(self.fr_grip_no)
         self.hly_fr_no.setSpacing(0)
         self.hly_fr_no.setObjectName(u"hly_fr_no")
         self.hly_fr_no.setContentsMargins(0, 0, 0, 0)
-        self.hly_no = QHBoxLayout()
-        self.hly_no.setSpacing(0)
-        self.hly_no.setObjectName(u"hly_no")
+        self.hly_grip_no = QHBoxLayout()
+        self.hly_grip_no.setSpacing(0)
+        self.hly_grip_no.setObjectName(u"hly_grip_no")
 
-        self.hly_fr_no.addLayout(self.hly_no)
+        self.hly_fr_no.addLayout(self.hly_grip_no)
 
 
-        self.hly_bar.addWidget(self.fr_no)
+        self.hly_bar.addWidget(self.fr_grip_no)
 
         self.btn_logo = QPushButton(self.fr_bar)
         self.btn_logo.setObjectName(u"btn_logo")
@@ -245,6 +245,7 @@ class Ui_WidgetFrameless(object):
         self.vly_wg_status_bar.setObjectName(u"vly_wg_status_bar")
         self.vly_wg_status_bar.setContentsMargins(0, 0, 0, 0)
         self.hly_status_bar = QHBoxLayout()
+        self.hly_status_bar.setSpacing(0)
         self.hly_status_bar.setObjectName(u"hly_status_bar")
         self.fr_statusbar_left = QFrame(self.wg_status_bar)
         self.fr_statusbar_left.setObjectName(u"fr_statusbar_left")
@@ -262,6 +263,22 @@ class Ui_WidgetFrameless(object):
 
 
         self.hly_status_bar.addWidget(self.fr_statusbar_left)
+
+        self.fr_grip_so = QFrame(self.wg_status_bar)
+        self.fr_grip_so.setObjectName(u"fr_grip_so")
+        self.fr_grip_so.setFrameShape(QFrame.Shape.NoFrame)
+        self.fr_grip_so.setFrameShadow(QFrame.Shadow.Plain)
+        self.verticalLayout_6 = QVBoxLayout(self.fr_grip_so)
+        self.verticalLayout_6.setSpacing(0)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.hly_sb_grip_so = QHBoxLayout()
+        self.hly_sb_grip_so.setObjectName(u"hly_sb_grip_so")
+
+        self.verticalLayout_6.addLayout(self.hly_sb_grip_so)
+
+
+        self.hly_status_bar.addWidget(self.fr_grip_so)
 
         self.lb_statusbar_left = QLabel(self.wg_status_bar)
         self.lb_statusbar_left.setObjectName(u"lb_statusbar_left")
@@ -301,23 +318,23 @@ class Ui_WidgetFrameless(object):
 
         self.hly_status_bar.addWidget(self.lb_statusbar_right)
 
-        self.fr_statusbar_grip = QFrame(self.wg_status_bar)
-        self.fr_statusbar_grip.setObjectName(u"fr_statusbar_grip")
-        self.fr_statusbar_grip.setMaximumSize(QSize(16777215, 20))
-        self.fr_statusbar_grip.setFrameShape(QFrame.Shape.NoFrame)
-        self.fr_statusbar_grip.setFrameShadow(QFrame.Shadow.Plain)
-        self.verticalLayout_3 = QVBoxLayout(self.fr_statusbar_grip)
+        self.fr_grip_se = QFrame(self.wg_status_bar)
+        self.fr_grip_se.setObjectName(u"fr_grip_se")
+        self.fr_grip_se.setMaximumSize(QSize(16777215, 20))
+        self.fr_grip_se.setFrameShape(QFrame.Shape.NoFrame)
+        self.fr_grip_se.setFrameShadow(QFrame.Shadow.Plain)
+        self.verticalLayout_3 = QVBoxLayout(self.fr_grip_se)
         self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.hly_sb_grip = QHBoxLayout()
-        self.hly_sb_grip.setSpacing(0)
-        self.hly_sb_grip.setObjectName(u"hly_sb_grip")
+        self.hly_sb_grip_se = QHBoxLayout()
+        self.hly_sb_grip_se.setSpacing(0)
+        self.hly_sb_grip_se.setObjectName(u"hly_sb_grip_se")
 
-        self.verticalLayout_3.addLayout(self.hly_sb_grip)
+        self.verticalLayout_3.addLayout(self.hly_sb_grip_se)
 
 
-        self.hly_status_bar.addWidget(self.fr_statusbar_grip)
+        self.hly_status_bar.addWidget(self.fr_grip_se)
 
         self.fr_statusbar_right = QFrame(self.wg_status_bar)
         self.fr_statusbar_right.setObjectName(u"fr_statusbar_right")
